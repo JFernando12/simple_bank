@@ -1,0 +1,8 @@
+// Create first migration
+migrate create -ext sql -dir d/migration -seq init_schema
+
+// Run migration
+migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+
+// Command to acces postgresql alpine
+docker exec -it postgres12 /bin/sh
